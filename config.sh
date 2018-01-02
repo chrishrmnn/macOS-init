@@ -1,3 +1,6 @@
+# Fermer les fenêtres "Préférences Système"
+osascript -e 'tell application "System Preferences" to quit'
+
 # Keep-alive: met à jour le timestamp de `sudo`
 # tant que `install.sh` n'est pas terminé
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &

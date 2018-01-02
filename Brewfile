@@ -3,12 +3,14 @@ tap 'caskroom/fonts'
 tap 'caskroom/versions'
 tap 'homebrew/bundle'
 
-
 # Définir où placer les applications installées
 cask_args appdir: '/Applications'
 
 # Permettre l'installation d'applications de l'AppStore
 brew 'mas'
+
+# Se connecter au Mac App Store (avec la boite de diaglogue)
+mas signin --dialog 'contact@christophe-hermann.fr'
 
 # Utilitaires
 cask 'coconutbattery'
@@ -18,7 +20,6 @@ cask 'flux'
 cask 'appcleaner'
 cask 'spectacle'
 mas 'The Unarchiver', id: 425424353
-
 
 # Navigateurs
 cask 'firefox'
