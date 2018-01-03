@@ -20,6 +20,7 @@ echo 'export PATH="/usr/local/sbin:$PATH"' >> ~/.zshrc
 # Mettre à jour la liste des applications disponibles
 brew update
 brew upgrade
+brew doctor
 
 # Installer Dropbox au plus tôt pour lancer la synchro des settings
 brew cask install dropbox
@@ -37,8 +38,8 @@ npm install -g grunt-cli
 
 echo "Finalisation de l'installation de PHP"
 echo 'export PATH="$(brew --prefix homebrew/php/php71)/bin:$PATH"' >> ~/.zshrc
-brew services start homebrew/php/php71
-brew services start homebrew/apache/httpd24
+brew services start php71
+brew services start httpd24
 
 echo "Derniers nettoyages…"
 brew cask cleanup
