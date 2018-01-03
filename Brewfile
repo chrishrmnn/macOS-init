@@ -31,7 +31,7 @@ brew 'wget'
 brew 'git'
 brew 'node'
 brew 'dnsmasq'
-brew 'php71', args: ['with-httpd24']
+brew 'php71', args: ['with-httpd24', 'with-xdebug']
 brew 'zsh'
 brew 'zsh-completions'
 cask 'iterm2'
