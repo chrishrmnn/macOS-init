@@ -47,11 +47,11 @@ defaults write com.apple.LaunchServices LSQuarantine -bool false
 defaults write com.apple.finder QLEnableTextSelection -bool true
 
 # Dock : Taille minimum
-defaults write com.apple.dock tilesize -int 32
+defaults write com.apple.dock tilesize -int 48
 # Dock : Agrandissement actif
 defaults write com.apple.dock magnification -bool true
 # Dock : Taille maximale pour l'agrandissement
-defaults write com.apple.dock largesize -float 128
+defaults write com.apple.dock largesize -float 96
 
 # Accès au clavier complet (tabulation dans les boîtes de dialogue)
 sudo defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
