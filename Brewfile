@@ -40,7 +40,6 @@ cask 'sourcetree'
 cask 'sublime-text'
 cask 'virtualbox'
 cask 'virtualbox-extension-pack'
-cask 'github-desktop'
 cask 'font-roboto-mono'
 
 # Privacy
