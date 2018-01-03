@@ -2,6 +2,7 @@
 tap 'caskroom/fonts'
 tap 'caskroom/versions'
 tap 'homebrew/bundle'
+tap 'homebrew/homebrew-php'
 
 # Définir où placer les applications installées
 cask_args appdir: '/Applications'
@@ -10,7 +11,7 @@ cask_args appdir: '/Applications'
 brew 'mas'
 
 # Se connecter au Mac App Store (avec la boite de diaglogue)
-mas signin --dialog 'contact@christophe-hermann.fr'
+# mas signin --dialog 'contact@christophe-hermann.fr'
 
 # Utilitaires
 cask 'coconutbattery'
