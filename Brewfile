@@ -20,9 +20,9 @@ cask 'flux'
 cask 'appcleaner'
 cask 'spectacle'
 cask 'the-unarchiver'
-brew 'qlmarkdown'
-brew 'quicklook-json'
-brew 'webpquicklook'
+cask 'qlmarkdown'
+cask 'quicklook-json'
+cask 'webpquicklook'
 
 # Navigateurs
 cask 'firefox'
@@ -50,7 +50,7 @@ cask '1password'
 cask 'bitwarden'
 
 # Design
-cask 'adobe-creative-cloud'
+cask 'adobe-creative-cloud' # not working on M1 yet
 cask 'imageoptim'
 cask 'sketch'
 cask 'figma'
@@ -66,3 +66,4 @@ cask 'slack'
 cask 'zoom'
 cask 'telegram-desktop'
 cask 'grammarly'
+cask 'dropbox'
