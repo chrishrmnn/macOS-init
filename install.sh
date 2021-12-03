@@ -24,7 +24,7 @@ brew doctor
 
 # Installer Dropbox au plus tôt pour lancer la synchro des settings
 brew cask install dropbox
-echo "Ouverture de Dropbox pour commencer la synchronisation"
+echo "Opening Dropbox to start synchronisation"
 open -a Dropbox
 
 # Installer les nouvelles applications du bundle Brewfile
@@ -32,19 +32,24 @@ open -a Dropbox
 brew bundle
 
 ## node.js packages
-echo "Installation des outils de développement Node"
+echo "Install node development tools"
+npm install -g yarn
 npm install -g grunt
 npm install -g grunt-cli
 
-echo "Finalisation de l'installation de PHP"
-echo 'export PATH="$(brew --prefix homebrew/php/php71)/bin:$PATH"' >> ~/.zshrc
-brew services start php71
-brew services start httpd24
+## ruby stuff
+echo "Install Ruby stuff (Bundler, etc.)"
+gem install bundler
 
-echo "Derniers nettoyages…"
+# echo "Finalisation de l'installation de PHP"
+# echo 'export PATH="$(brew --prefix homebrew/php/php71)/bin:$PATH"' >> ~/.zshrc
+# brew services start php71
+# brew services start httpd24
+
+echo "Some cleanup…"
 brew cask cleanup
 brew cleanup
 rm -f -r /Library/Caches/Homebrew/*
 
 echo ""
-echo "Installation [✓]"
+echo "…and it's done [✓]"

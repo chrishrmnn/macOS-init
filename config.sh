@@ -5,6 +5,9 @@ osascript -e 'tell application "System Preferences" to quit'
 # tant que `install.sh` n'est pas terminé
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
+# Enable subpixel font rendering on non-Apple LCDs
+defaults write NSGlobalDomain AppleFontSmoothing -int 2
+
 # Affichage de la barre latérale
 defaults write com.apple.finder ShowStatusBar -bool true
 
@@ -17,6 +20,12 @@ defaults write com.apple.finder FXPreferredViewStyle -string "clmv"
 
 # Afficher le chemin d'accès
 defaults write com.apple.finder ShowPathbar -bool true
+
+# Show the ~/Library folder
+chflags nohidden ~/Library && xattr -d com.apple.FinderInfo ~/Library
+
+# Show the /Volumes folder
+sudo chflags nohidden /Volumes
 
 # Affichage de toutes les extensions
 sudo defaults write NSGlobalDomain AppleShowAllExtensions -bool true
@@ -47,11 +56,19 @@ defaults write com.apple.LaunchServices LSQuarantine -bool false
 defaults write com.apple.finder QLEnableTextSelection -bool true
 
 # Dock : Taille minimum
-defaults write com.apple.dock tilesize -int 48
+defaults write com.apple.dock tilesize -int 36
 # Dock : Agrandissement actif
 defaults write com.apple.dock magnification -bool true
 # Dock : Taille maximale pour l'agrandissement
-defaults write com.apple.dock largesize -float 96
+defaults write com.apple.dock largesize -float 48
+
+# Wipe all (default) app icons from the Dock
+# This is only really useful when setting up a new Mac, or if you don’t use
+# the Dock to launch apps.
+defaults write com.apple.dock persistent-apps -array
+
+# Don’t show recent applications in Dock
+defaults write com.apple.dock show-recents -bool false
 
 # Accès au clavier complet (tabulation dans les boîtes de dialogue)
 sudo defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
@@ -97,10 +114,13 @@ sudo nvram SystemAudioVolume="%00"
 # Enregistrer les screenshots en PNG (autres options: BMP, GIF, JPG, PDF, TIFF)
 defaults write com.apple.screencapture type -string "png"
 
+# Changement du dossier d'enregistrement des screenshots
+defaults write com.apple.screencapture location /Users/chris/Documents/_screenshots
+
 # Ne pas mettre d'ombre sur les screenshots
 defaults write com.apple.screencapture disable-shadow -bool true
 
-# Quitter auomatiquement l'utilitaire d'impression quand les tâches sont finies
+# Quitter automatiquement l'utilitaire d'impression quand les tâches sont finies
 defaults write com.apple.print.PrintingPrefs "Quit When Finished" -bool true
 
 # Afficher le pourcentage de batterie (Menu bar)
@@ -121,13 +141,14 @@ defaults write com.googlecode.iterm2 PromptOnQuit -bool false
 chsh -s /bin/zsh
 
 # Télécharger Package Control pour Sublime Text et l'installer
-wget https://sublime.wbond.net/Package%20Control.sublime-package
-mv Package\ Control.sublime-package ~/Library/Application\ Support/Sublime\ Text\ 3/Installed\ Packages/
+# wget https://sublime.wbond.net/Package%20Control.sublime-package
+# mv Package\ Control.sublime-package ~/Library/Application\ Support/Sublime\ Text\ 3/Installed\ Packages/
 
 
 echo "Finder et Dock relancés… redémarrage nécessaire pour terminer."
 killall Dock
 killall Finder
+killall SystemUIServer
 
 echo ""
 echo "Configuration [✓]"
