@@ -1,0 +1,22 @@
+# OS related files or folders
+.DS_Store
+*.DS_Store
+Thumbs.db
+.Trashes
+.Spotlight-V100
+.fseventsd
+
+# Editor related files or folders
+.idea
+*.sublime-project
+*.sublime-workspace
+*.esproj
+.settings
+.tmproj
+
+# Misc.
+node_modules
+.sass-cache
+*.log
+.svn
+
